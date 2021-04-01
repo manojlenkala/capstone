@@ -2,4 +2,3 @@ seaborn
 plotly
 sklearn
 base64
-seaborn
