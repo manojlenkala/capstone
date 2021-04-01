@@ -1,3 +1,4 @@
+python -m pip install seaborn
 seaborn
 plotly
 sklearn
