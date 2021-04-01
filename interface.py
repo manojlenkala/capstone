@@ -7,6 +7,7 @@ from PIL import Image
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
+import base64
 
 
 # loading in the model to predict on the data 
@@ -79,6 +80,26 @@ def Bedroomsgraph(city):
             st.pyplot(EEW_fig_BD)           
      
     
+@st.cache(allow_output_mutation=True)
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_png_as_page_bg(png_file):
+    bin_str = get_base64_of_bin_file(png_file)
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+    return
+
 # this is the main function in which we define our webpage 
 def main():
     
@@ -98,16 +119,8 @@ def main():
     # defined in the above code 
     st.markdown(html_temp, unsafe_allow_html = True)
     
-    # Here we define the background url
-    page_bg_img = '''
-    <style>
-    body {
-    background-image: url("https://i0.wp.com/away4mhome.com/wp-content/uploads/2019/06/windsor-canada.jpg?fit=960%2C540&ssl=1");
-    background-size:cover;
-    }
-    </style>
-    '''
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    set_png_as_page_bg('windsor-canada.jpg')
+
 
  
     # Organizing the elements of the web page in a interactive way by defining them in the web page columns
