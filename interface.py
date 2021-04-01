@@ -1,12 +1,12 @@
 # Importing the required libraries
+import streamlit as st
 import pandas as pd 
 import numpy as np 
 import pickle 
-import streamlit as st 
-from PIL import Image
-import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
+from PIL import Image
+import seaborn as sns
 import base64
 
 
