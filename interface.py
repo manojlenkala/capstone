@@ -103,8 +103,6 @@ def main():
     <style>
     body {
     background-image: url("https://i0.wp.com/away4mhome.com/wp-content/uploads/2019/06/windsor-canada.jpg?fit=960%2C540&ssl=1");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size:cover;
     }
     </style>
